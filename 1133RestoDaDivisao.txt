@@ -1,0 +1,28 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+ try {
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+
+        if (x > y) {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+
+        for (int i = x + 1; i < y; i++) {
+            if (i % 5 == 2 || i % 5 == 3) {
+                System.out.println(i);
+            }
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Entrada inválida. Por favor, digite apenas números inteiros.");
+    } finally {
+        sc.close();
+    }
+}
+}

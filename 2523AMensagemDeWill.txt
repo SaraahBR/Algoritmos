@@ -1,0 +1,30 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            try {
+                String letras = sc.nextLine();
+                int n = sc.nextInt();
+                int[] piscadas = new int[n];
+                for (int i = 0; i < n; i++) {
+                    piscadas[i] = sc.nextInt();
+                }
+                sc.nextLine();
+
+                StringBuilder mensagem = new StringBuilder();
+                for (int i = 0; i < n; i++) {
+                    int posicao = piscadas[i] - 1; 
+                    char letra = letras.charAt(posicao); 
+                    mensagem.append(letra);
+                }
+
+                System.out.println(mensagem);
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida.");
+            }
+        }
+        sc.close();
+    }
